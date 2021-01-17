@@ -1,4 +1,5 @@
-#include<stdio.h>
+#include <stdio.h>
+#include "display.h"
 
 int main() {
     unsigned char board[8][8] = {
