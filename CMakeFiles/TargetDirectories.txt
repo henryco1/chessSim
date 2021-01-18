@@ -1,0 +1,3 @@
+/mnt/33AAE3CD5EB7553A/Coding/Projects/MINI_PROJECTS/chess/CMakeFiles/rebuild_cache.dir
+/mnt/33AAE3CD5EB7553A/Coding/Projects/MINI_PROJECTS/chess/CMakeFiles/chessSim.dir
+/mnt/33AAE3CD5EB7553A/Coding/Projects/MINI_PROJECTS/chess/CMakeFiles/edit_cache.dir

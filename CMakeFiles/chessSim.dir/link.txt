@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/chessSim.dir/src/game.cpp.o CMakeFiles/chessSim.dir/src/display.cpp.o CMakeFiles/chessSim.dir/src/input.cpp.o CMakeFiles/chessSim.dir/src/main.cpp.o  -o chessSim 
