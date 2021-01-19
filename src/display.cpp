@@ -19,7 +19,7 @@ void DisplayManager::showGraphicBoard()
 
     for (int i=0; i<8; i++) {
         for (int j=0; j<8; j++) {
-            printf("%c", (*refboard)[j]);
+            printf("%c", refboard[i][j]);
         }
         printf("\n");
     }
@@ -48,18 +48,18 @@ void DisplayManager::showGraphicBoard()
         // get the type of piece
         tempboard[row][col] = **refboard + row + col;
         // printf("%c\n," *refboard[row] + col);
-        // printf("%c\n," refboard[row][col]);
+        // printf("%c\n", tempboard[row][col]);
         // tempboard[row][col] = curr;
     }
 
     // render the board
-    for (int i=0; i<8; i++) {
-        for (int j=0; j<8; j++) {
-            printf("%c", *tempboard[i] + j);
-        }
-        printf("\n");
-    }
-    printf("\n");
+    // for (int i=0; i<8; i++) {
+    //     for (int j=0; j<8; j++) {
+    //         printf("%c", *tempboard[i] + j);
+    //     }
+    //     printf("\n");
+    // }
+    // printf("\n");
 
 
     // unsigned char arr[3] = {'1', '2', '3'};
@@ -97,7 +97,10 @@ void DisplayManager::showGraphicBoard()
     // }    
 
 }
-
-// void DisplayManager::setBoard() {
-    // DisplayManager::bitboard = 
-// }
+void DisplayManager::setRefboard(unsigned char input_refboard[8][8]) {
+    for (int i=0; i<8; i++) {
+        for (int j=0; j<8; j++) {
+            DisplayManager::refboard[i][j] = input_refboard[i][j];
+        }
+    }
+}

@@ -26,7 +26,6 @@ class DisplayManager
     */
     public:
         void showGraphicBoard(); 
-        void setBoard(unsigned long long bitboard);
 
         unsigned long long getBitboard() { return bitboard; };
         // here we return a pointer to an array of unsigned chars
@@ -36,7 +35,7 @@ class DisplayManager
         unsigned char (*getRefboard())[8] { return refboard; };
 
         void setBitboard(unsigned long long input_bitboard) { bitboard = input_bitboard; };
-        void setRefboard(unsigned char (*input_refboard)[8]) { (*refboard)[8] = (*input_refboard)[8]; };
+        void setRefboard(unsigned char input_refboard[][8]);
     private:
         unsigned long long bitboard = 0;
         unsigned char refboard[8][8];

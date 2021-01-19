@@ -30,7 +30,16 @@ class GameManager
         void showBoard() { display.showGraphicBoard(); };
     private:
         unsigned long long bitboard = 0;
-        unsigned char refboard[8][8];
+        unsigned char refboard[8][8] = {
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+        };
         DisplayManager display = DisplayManager();
 
 };

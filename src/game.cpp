@@ -28,7 +28,7 @@ void GameManager::setBoard(std::unordered_map<std::string, std::string> init_pie
         unsigned int col = kv.second[1] - '0';
         
         // printf("color: %c, type: %c, position: %s, row: %d, col: %d\n", 
-            // color, type, position.c_str(), row, col);
+        //     color, type, position.c_str(), row, col);
 
         unsigned int bitpos = row * col;
         // printf("bitpos: %d\n", bitpos);
@@ -38,9 +38,22 @@ void GameManager::setBoard(std::unordered_map<std::string, std::string> init_pie
         GameManager::bitboard |= bitpos;
 
         GameManager::refboard[row][col] = type;
+
+        printf("refboard at %d, %d: %c\n", row, col, type);
     }
 
     GameManager::display.setBitboard(GameManager::bitboard);
     GameManager::display.setRefboard(GameManager::refboard);
 }
 
+// { (*refboard)[8] = (*input_refboard)[8]; };
+
+
+    // render the board
+    // for (int i=0; i<8; i++) {
+    //     for (int j=0; j<8; j++) {
+    //         printf("%c", *tempboard[i] + j);
+    //     }
+    //     printf("\n");
+    // }
+    // printf("\n");
