@@ -27,19 +27,36 @@ class DisplayManager
     public:
         void showGraphicBoard(); 
 
-        unsigned long long getBitboard() { return bitboard; };
+        // unsigned long long getBitboard() { return DisplayManager::bitboard; };
         // here we return a pointer to an array of unsigned chars
         // a 2d array decays to a pointer pointing to the first element of the array
         // the rule is that array names decay into pointers
         // for example, an array decays into a pointer to its first element
-        unsigned char (*getRefboard())[8] { return refboard; };
+        // unsigned char (*getRefboard())[8] { return DisplayManager::refboard; };
 
-        void setBitboard(unsigned long long input_bitboard) { bitboard = input_bitboard; };
+        // void setBitboard(unsigned long long input_bitboard) { bitboard = input_bitboard; };
         void setRefboard(unsigned char input_refboard[][8]);
-    private:
         unsigned long long bitboard = 0;
-        unsigned char refboard[8][8];
-        unsigned char gfxboard[8][8]; 
+        unsigned char refboard[8][8] = {
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+        };
+        unsigned char gfxboard[8][8] = {
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+            '.', '.', '.', '.', '.', '.', '.', '.',
+        };
 
         void parseBitboardToGraphic();
         void parseRefboardToGraphic();

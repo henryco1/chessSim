@@ -14,8 +14,8 @@ void DisplayManager::showGraphicBoard()
         2. the refbaord, which tells us what piece is at each position.
     */
 
-    unsigned long long bitboard = DisplayManager::getBitboard();
-    unsigned char (*refboard)[8] = DisplayManager::getRefboard();
+    unsigned long long bitboard = DisplayManager::bitboard;
+    unsigned char (*refboard)[8] = DisplayManager::refboard;
 
     for (int i=0; i<8; i++) {
         for (int j=0; j<8; j++) {
@@ -27,8 +27,10 @@ void DisplayManager::showGraphicBoard()
     unsigned char tempboard[8][8];
     int row = 0;
     int col = 0;
+    printf("bitboard: %lld\n", bitboard);
     while (bitboard) 
     {
+        printf("row: %d, col: %d\n", row, col);
         if (col % 8 == 0) 
         {
             row++;
@@ -44,22 +46,20 @@ void DisplayManager::showGraphicBoard()
 
         // if nothing as at the position, continue
         if (!curr) continue;
-
         // get the type of piece
-        tempboard[row][col] = **refboard + row + col;
-        // printf("%c\n," *refboard[row] + col);
-        // printf("%c\n", tempboard[row][col]);
-        // tempboard[row][col] = curr;
+        // tempboard[col][row] = **refboard + row + col;
+        tempboard[col][row] = '1';
     }
 
     // render the board
-    // for (int i=0; i<8; i++) {
-    //     for (int j=0; j<8; j++) {
-    //         printf("%c", *tempboard[i] + j);
-    //     }
-    //     printf("\n");
-    // }
-    // printf("\n");
+    for (int i=0; i<8; i++) {
+        for (int j=0; j<8; j++) {
+            // tempboard[i][j] = '.';
+            printf("%c", tempboard[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
 
 
     // unsigned char arr[3] = {'1', '2', '3'};
