@@ -37,7 +37,10 @@ void GameManager::setBoard(std::unordered_map<std::string, std::string> init_pie
         GameManager::bitboard &= bitpos;
         GameManager::bitboard |= bitpos;
 
-        refboard[row][col] = type;
+        GameManager::refboard[row][col] = type;
     }
+
+    GameManager::display.setBitboard(GameManager::bitboard);
+    GameManager::display.setRefboard(GameManager::refboard);
 }
 

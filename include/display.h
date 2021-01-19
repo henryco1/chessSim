@@ -34,6 +34,9 @@ class DisplayManager
         // the rule is that array names decay into pointers
         // for example, an array decays into a pointer to its first element
         unsigned char (*getRefboard())[8] { return refboard; };
+
+        void setBitboard(unsigned long long input_bitboard) { bitboard = input_bitboard; };
+        void setRefboard(unsigned char (*input_refboard)[8]) { (*refboard)[8] = (*input_refboard)[8]; };
     private:
         unsigned long long bitboard = 0;
         unsigned char refboard[8][8];
