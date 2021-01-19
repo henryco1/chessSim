@@ -30,7 +30,7 @@ class GameManager
         // unsigned char (*getRefBoard())[8] { return refboard; };
         void showBoard() { display.showGraphicBoard(); };
     // private:
-        uint64_t bitboard = 200;
+        uint64_t bitboard = 0;
         unsigned char refboard[8][8] = {
             '.', '.', '.', '.', '.', '.', '.', '.',
             '.', '.', '.', '.', '.', '.', '.', '.',

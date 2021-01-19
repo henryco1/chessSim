@@ -38,7 +38,7 @@ class DisplayManager
         // void setBitboard(unsigned long long input_bitboard) { bitboard = input_bitboard; };
         // void setRefboard(unsigned char input_refboard[][8]) {(*refboard)[8] = (*input_refboard)[8];};
         void setRefboard(unsigned char input_refboard[][8]);
-        uint64_t bitboard = 100;
+        uint64_t bitboard = 0;
         unsigned char refboard[8][8] = {
             '.', '.', '.', '.', '.', '.', '.', '.',
             '.', '.', '.', '.', '.', '.', '.', '.',
