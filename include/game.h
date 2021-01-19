@@ -7,6 +7,7 @@ Header file for the game manager
 #define GAME_H
 #include <unordered_map>
 #include <string>
+#include <stdint.h>
 #include "display.h"
 
 /*
@@ -29,7 +30,7 @@ class GameManager
         // unsigned char (*getRefBoard())[8] { return refboard; };
         void showBoard() { display.showGraphicBoard(); };
     // private:
-        unsigned long long bitboard = 0;
+        uint64_t bitboard = 200;
         unsigned char refboard[8][8] = {
             '.', '.', '.', '.', '.', '.', '.', '.',
             '.', '.', '.', '.', '.', '.', '.', '.',

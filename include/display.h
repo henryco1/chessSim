@@ -6,6 +6,7 @@ Header file for the display manager
 #ifndef DISPLAY_H
 #define DISPLAY_H
 #include <string>
+#include <stdint.h>
 
 /*
 Display manager handles the processing of game state into a visualization
@@ -35,8 +36,9 @@ class DisplayManager
         // unsigned char (*getRefboard())[8] { return DisplayManager::refboard; };
 
         // void setBitboard(unsigned long long input_bitboard) { bitboard = input_bitboard; };
+        // void setRefboard(unsigned char input_refboard[][8]) {(*refboard)[8] = (*input_refboard)[8];};
         void setRefboard(unsigned char input_refboard[][8]);
-        unsigned long long bitboard = 0;
+        uint64_t bitboard = 100;
         unsigned char refboard[8][8] = {
             '.', '.', '.', '.', '.', '.', '.', '.',
             '.', '.', '.', '.', '.', '.', '.', '.',

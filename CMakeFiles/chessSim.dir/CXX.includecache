@@ -11,6 +11,8 @@ display.h
 /mnt/33AAE3CD5EB7553A/Coding/Projects/MINI_PROJECTS/chess/src/display.h
 string
 -
+stdint.h
+-
 
 /mnt/33AAE3CD5EB7553A/Coding/Projects/MINI_PROJECTS/chess/src/game.cpp
 game.h
@@ -18,6 +20,8 @@ game.h
 unordered_map
 -
 string
+-
+stdint.h
 -
 
 /mnt/33AAE3CD5EB7553A/Coding/Projects/MINI_PROJECTS/chess/src/input.cpp
@@ -39,11 +43,15 @@ input.h
 include/display.h
 string
 -
+stdint.h
+-
 
 include/game.h
 unordered_map
 -
 string
+-
+stdint.h
 -
 display.h
 include/display.h
