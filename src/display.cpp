@@ -17,50 +17,70 @@ void DisplayManager::showGraphicBoard() {
     // unsigned long long bitboard = DisplayManager::bitboard;
     // unsigned char (*refboard)[8] = DisplayManager::refboard;
 
-    for (int i=0; i<8; i++) {
-        for (int j=0; j<8; j++) {
-            printf("%c", refboard[i][j]);
-        }
-        printf("\n");
-    }
+    // for (int i=0; i<8; i++) {
+    //     for (int j=0; j<8; j++) {
+    //         printf("%c", refboard[i][j]);
+    //     }
+    //     printf("\n");
+    // }
 
-    unsigned char tempboard[8][8];
+
     int row = 0;
     int col = 0;
     // printf("bitboard: %d\n", bitboard);
     printf("\n");
-    // while (bitboard) 
-    // {
-    //     printf("row: %d, col: %d\n", row, col);
-    //     if (col % 8 == 0) 
-    //     {
-    //         row++;
-    //         col = 0;
-    //     }
-    //     else 
-    //     {
-    //         col++;
-    //     }
-    //     // get the piece position
-    //     unsigned char curr = bitboard & 1;
-    //     bitboard >>= 1;          
+    while (bitboard) 
+    {
+        printf("%lu\n", bitboard);
+        uint64_t temp = bitboard;
+        for (int i=64; i>0; i--) {
+            if (temp & 1) {
+                printf("1");
+            }
+            else {
+                printf("0");
+            }
+            temp >>= 1;
+        }
+        printf("\n");
 
-    //     // if nothing as at the position, continue
-    //     if (!curr) continue;
-    //     // get the type of piece
-    //     // tempboard[col][row] = **refboard + row + col;
-    //     tempboard[col][row] = '1';
-    // }
 
-    // // render the board
-    // for (int i=0; i<8; i++) {
-    //     for (int j=0; j<8; j++) {
-    //         // tempboard[i][j] = '.';
-    //         printf("%c", tempboard[i][j]);
-    //     }
-    //     printf("\n");
-    // }
-    // printf("\n");
+        // get the piece position
+        unsigned char curr = bitboard & 1;
+        bitboard >>= 1;          
+
+        // printf("row: %d, col: %d\n", row, col);
+        if (col % 8 == 0) 
+        {
+            // get the type of piece
+            // tempboard[col][row] = **refboard + row + col;
+            if (curr) {
+                gfxboard[col][row] = refboard[col][row];
+            }
+            row++;
+            col = 0;
+        }
+        else 
+        {
+            // get the type of piece
+            // tempboard[col][row] = **refboard + row + col;
+            if (curr) {
+                gfxboard[col][row] = refboard[col][row];
+            }
+            col++;
+        }
+
+
+    }
+
+    // render the board
+    for (int i=0; i<8; i++) {
+        for (int j=0; j<8; j++) {
+            printf("%c", gfxboard[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
 
 
     // unsigned char arr[3] = {'1', '2', '3'};

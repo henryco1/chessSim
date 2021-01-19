@@ -31,10 +31,9 @@ void GameManager::setBoard(std::unordered_map<std::string, std::string> init_pie
         printf("color: %c, type: %c, position: %s, rank: %d, file: %d\n", 
             color, type, position.c_str(), rank, file);
 
-        // here we can't index chess board positions
-        // i think we need to make a table here that references the correct board position
-        // need a % mod multiplier probably
-        // http://pages.cs.wisc.edu/~psilord/blog/data/chess-pages/rep.html
+        // here we can't just index for our piece position.
+        // the bitpos formula generates the correct bit position based on the table in the 
+        // documentation:  http://pages.cs.wisc.edu/~psilord/blog/data/chess-pages/rep.html
         unsigned int bitpos = 8 * (rank) + file;
         printf("bitpos: %d\n", bitpos);
 
@@ -43,26 +42,22 @@ void GameManager::setBoard(std::unordered_map<std::string, std::string> init_pie
         bitboard &= ~(one << bitpos);
         bitboard |= (one << bitpos);
 
-        refboard[file][rank] = type;
+        refboard[rank][file] = type;
         // printf("refboard at %d, %d: %c\n", rank, file, type);
-        // break;
     }
 
-    printf("%lu\n", bitboard);
-    uint64_t temp = bitboard;
-    for (int i=64; i>0; i--) {
-        if (temp & 1) {
-            printf("1");
-        }
-        else {
-            printf("0");
-        }
-        temp >>= 1;
-    }
-    printf("\n");
+    // uint64_t temp = bitboard;
+    // for (int i=64; i>0; i--) {
+    //     if (temp & 1) {
+    //         printf("1");
+    //     }
+    //     else {
+    //         printf("0");
+    //     }
+    //     temp >>= 1;
+    // }
+    // printf("\n");
 
-    // display.bitboard = GameManager::bitboard;
-    // printf("game bitboard: %llu\n", bitboard);
-    display.bitboard += 1;
+    display.bitboard = bitboard;
     display.setRefboard(refboard);
 }
